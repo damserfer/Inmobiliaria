@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 /**
- *** A Habitacion.
+ **** A Habitacion.
  **/
 @Entity
 @Table(name = "habitacion")
