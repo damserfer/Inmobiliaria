@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 /**
  * A Habitacion.
- */
+ **/
 @Entity
 @Table(name = "habitacion")
 public class Habitacion implements Serializable {
