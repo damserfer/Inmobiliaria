@@ -1,0 +1,31 @@
+{
+  "inmobiliariaApp": {
+    "cargo": {
+      "home": {
+        "title": "Cargos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Cargo",
+        "createOrEditLabel": "Crear o editar Cargo",
+        "notFound": "Ningún Cargos encontrado"
+      },
+      "created": "Un nuevo Cargo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Cargo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Cargo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Cargo {{ id }}?"
+      },
+      "detail": {
+        "title": "Cargo"
+      },
+      "id": "ID",
+      "fechaCargo": "Fecha Cargo",
+      "mes": "Mes",
+      "ejercicio": "Ejercicio",
+      "importeTotal": "Importe Total",
+      "pagado": "Pagado",
+      "concepto": "Concepto",
+      "ingreso": "Ingreso",
+      "contrato": "Contrato"
+    }
+  }
+}

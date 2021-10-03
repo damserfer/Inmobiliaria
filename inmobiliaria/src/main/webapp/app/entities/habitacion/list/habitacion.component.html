@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="HabitacionHeading">
+    <span jhiTranslate="inmobiliariaApp.habitacion.home.title">Habitacions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="inmobiliariaApp.habitacion.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-habitacion"
+        [routerLink]="['/habitacion/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="inmobiliariaApp.habitacion.home.createLabel"> Create a new Habitacion </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="habitacions?.length === 0">
+    <span jhiTranslate="inmobiliariaApp.habitacion.home.notFound">No habitacions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="habitacions && habitacions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.habitacion.precio">Precio</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.habitacion.descripcion">Descripcion</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.habitacion.inmueble">Inmueble</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let habitacion of habitacions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/habitacion', habitacion.id, 'view']">{{ habitacion.id }}</a>
+          </td>
+          <td>{{ habitacion.precio }}</td>
+          <td>{{ habitacion.descripcion }}</td>
+          <td>
+            <div *ngIf="habitacion.inmueble">
+              <a [routerLink]="['/inmueble', habitacion.inmueble?.id, 'view']">{{ habitacion.inmueble?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/habitacion', habitacion.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/habitacion', habitacion.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(habitacion)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

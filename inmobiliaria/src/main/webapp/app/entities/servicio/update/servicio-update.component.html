@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-servicio-heading" data-cy="ServicioCreateUpdateHeading" jhiTranslate="inmobiliariaApp.servicio.home.createOrEditLabel">
+        Create or edit a Servicio
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.servicio.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.servicio.precioHoras" for="field_precioHoras">Precio Horas</label>
+          <input
+            type="number"
+            class="form-control"
+            name="precioHoras"
+            id="field_precioHoras"
+            data-cy="precioHoras"
+            formControlName="precioHoras"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.servicio.horas" for="field_horas">Horas</label>
+          <input type="number" class="form-control" name="horas" id="field_horas" data-cy="horas" formControlName="horas" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.servicio.inmueble" for="field_inmueble">Inmueble</label>
+          <select class="form-control" id="field_inmueble" data-cy="inmueble" name="inmueble" formControlName="inmueble">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="inmuebleOption.id === editForm.get('inmueble')!.value?.id ? editForm.get('inmueble')!.value : inmuebleOption"
+              *ngFor="let inmuebleOption of inmueblesSharedCollection; trackBy: trackInmuebleById"
+            >
+              {{ inmuebleOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.servicio.empresa" for="field_empresa">Empresa</label>
+          <select class="form-control" id="field_empresa" data-cy="empresa" name="empresa" formControlName="empresa">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="empresaOption.id === editForm.get('empresa')!.value?.id ? editForm.get('empresa')!.value : empresaOption"
+              *ngFor="let empresaOption of empresasSharedCollection; trackBy: trackEmpresaById"
+            >
+              {{ empresaOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "inmobiliariaApp": {
+    "valoracion": {
+      "home": {
+        "title": "Valoracions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Valoracion",
+        "createOrEditLabel": "Crear o editar Valoracion",
+        "notFound": "Ningún Valoracions encontrado"
+      },
+      "created": "Un nuevo Valoracion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Valoracion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Valoracion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Valoracion {{ id }}?"
+      },
+      "detail": {
+        "title": "Valoracion"
+      },
+      "id": "ID",
+      "comentario": "Comentario",
+      "puntuacion": "Puntuacion",
+      "contrato": "Contrato"
+    }
+  }
+}

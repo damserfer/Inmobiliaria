@@ -1,0 +1,25 @@
+{
+  "inmobiliariaApp": {
+    "fotoUsuario": {
+      "home": {
+        "title": "Foto Usuarios",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Foto Usuario",
+        "createOrEditLabel": "Crear o editar Foto Usuario",
+        "notFound": "Ningún Foto Usuarios encontrado"
+      },
+      "created": "Un nuevo Foto Usuario ha sido creado con el identificador {{ param }}",
+      "updated": "Un Foto Usuario ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Foto Usuario ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Foto Usuario {{ id }}?"
+      },
+      "detail": {
+        "title": "Foto Usuario"
+      },
+      "id": "ID",
+      "url": "Url",
+      "usuarioEx": "Usuario Ex"
+    }
+  }
+}

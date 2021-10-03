@@ -1,0 +1,41 @@
+{
+  "name": "Servicio",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "precioHoras",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "horas",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inmueble",
+      "otherEntityRelationshipName": "servicio",
+      "relationshipName": "inmueble"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "empresa",
+      "otherEntityRelationshipName": "servicio",
+      "relationshipName": "empresa"
+    }
+  ],
+  "entityTableName": "servicio",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202642"
+}

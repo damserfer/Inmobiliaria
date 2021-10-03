@@ -1,0 +1,56 @@
+{
+  "name": "Cargo",
+  "fields": [
+    {
+      "fieldName": "fechaCargo",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "mes",
+      "fieldType": "Mes",
+      "fieldValues": "Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"
+    },
+    {
+      "fieldName": "ejercicio",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "importeTotal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "pagado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "concepto",
+      "fieldType": "Concepto",
+      "fieldValues": "Fianza,Alquiler,Servicios"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ingreso",
+      "otherEntityRelationshipName": "cargo",
+      "relationshipName": "ingreso",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contrato",
+      "otherEntityRelationshipName": "cargo",
+      "relationshipName": "contrato"
+    }
+  ],
+  "entityTableName": "cargo",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202638"
+}

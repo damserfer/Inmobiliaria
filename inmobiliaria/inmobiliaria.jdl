@@ -1,0 +1,114 @@
+
+entity UsuarioEx {
+    dni String
+    nombre String
+    apellidos String
+    password String
+}
+
+entity Contrato {
+fechaInicio LocalDate
+fechaFin LocalDate
+precioAlquiler LocalDate
+}
+
+entity Valoracion {
+comentario String
+puntuacion Integer
+}
+
+enum Mes {
+Enero
+Febrero
+Marzo
+Abril
+Mayo
+Junio
+Julio
+Agosto
+Septiembre
+Octubre
+Noviembre
+Diciembre
+}
+
+enum Concepto {
+Fianza
+Alquiler
+Servicios
+}
+
+entity Cargo {
+fechaCargo LocalDate
+mes Mes
+ejercicio Integer
+importeTotal Double
+pagado Boolean
+concepto Concepto
+}
+
+entity Ingreso {
+mes LocalDate
+concepto String
+cantidad Integer
+}
+
+entity Inmueble {
+calle String
+numero Integer
+escalera Integer
+codPostal Integer
+ciudad String
+descripcion String
+nbanios Integer
+}
+
+entity Habitacion{
+precio Double
+descripcion String
+}
+
+entity Servicio {
+nombre String
+precioHoras Double
+horas Integer
+}
+
+entity Empresa {
+cif String
+nombre String
+calle String
+numero Integer
+ciudad String
+web String
+telefono String
+}
+
+entity FotoHabitacion {
+url String
+}
+
+entity FotoUsuario {
+url String
+}
+
+
+relationship OneToMany {
+	UsuarioEx to FotoUsuario
+	UsuarioEx to Inmueble
+    UsuarioEx to Contrato
+    Inmueble to Habitacion
+    Inmueble to Contrato
+    Inmueble to Servicio
+    Habitacion to FotoHabitacion
+    Contrato to Valoracion
+    Contrato to Cargo
+    Empresa to Servicio
+}
+
+relationship OneToOne {
+Cargo to Ingreso
+
+}
+
+    

@@ -1,0 +1,36 @@
+{
+  "name": "Ingreso",
+  "fields": [
+    {
+      "fieldName": "mes",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "concepto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cantidad",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "cargo",
+      "otherEntityRelationshipName": "ingreso",
+      "relationshipName": "cargo",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "ingreso",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202639"
+}

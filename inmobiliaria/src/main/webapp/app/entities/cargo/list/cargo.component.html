@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="CargoHeading">
+    <span jhiTranslate="inmobiliariaApp.cargo.home.title">Cargos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="inmobiliariaApp.cargo.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cargo"
+        [routerLink]="['/cargo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="inmobiliariaApp.cargo.home.createLabel"> Create a new Cargo </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="cargos?.length === 0">
+    <span jhiTranslate="inmobiliariaApp.cargo.home.notFound">No cargos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="cargos && cargos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.fechaCargo">Fecha Cargo</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.mes">Mes</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.ejercicio">Ejercicio</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.importeTotal">Importe Total</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.pagado">Pagado</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.concepto">Concepto</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.ingreso">Ingreso</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.cargo.contrato">Contrato</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cargo of cargos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/cargo', cargo.id, 'view']">{{ cargo.id }}</a>
+          </td>
+          <td>{{ cargo.fechaCargo | formatMediumDate }}</td>
+          <td jhiTranslate="{{ 'inmobiliariaApp.Mes.' + cargo.mes }}">{{ cargo.mes }}</td>
+          <td>{{ cargo.ejercicio }}</td>
+          <td>{{ cargo.importeTotal }}</td>
+          <td>{{ cargo.pagado }}</td>
+          <td jhiTranslate="{{ 'inmobiliariaApp.Concepto.' + cargo.concepto }}">{{ cargo.concepto }}</td>
+          <td>
+            <div *ngIf="cargo.ingreso">
+              <a [routerLink]="['/ingreso', cargo.ingreso?.id, 'view']">{{ cargo.ingreso?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="cargo.contrato">
+              <a [routerLink]="['/contrato', cargo.contrato?.id, 'view']">{{ cargo.contrato?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/cargo', cargo.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/cargo', cargo.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(cargo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+{
+  "name": "Inmueble",
+  "fields": [
+    {
+      "fieldName": "calle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "escalera",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "codPostal",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ciudad",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbanios",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "habitacion",
+      "otherEntityRelationshipName": "inmueble",
+      "relationshipName": "habitacion"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contrato",
+      "otherEntityRelationshipName": "inmueble",
+      "relationshipName": "contrato"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "servicio",
+      "otherEntityRelationshipName": "inmueble",
+      "relationshipName": "servicio"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usuarioEx",
+      "otherEntityRelationshipName": "inmueble",
+      "relationshipName": "usuarioEx"
+    }
+  ],
+  "entityTableName": "inmueble",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202640"
+}

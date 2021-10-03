@@ -1,0 +1,51 @@
+{
+  "name": "UsuarioEx",
+  "fields": [
+    {
+      "fieldName": "dni",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "apellidos",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "fotoUsuario",
+      "otherEntityRelationshipName": "usuarioEx",
+      "relationshipName": "fotoUsuario"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "inmueble",
+      "otherEntityRelationshipName": "usuarioEx",
+      "relationshipName": "inmueble"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contrato",
+      "otherEntityRelationshipName": "usuarioEx",
+      "relationshipName": "contrato"
+    }
+  ],
+  "entityTableName": "usuario_ex",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202635"
+}

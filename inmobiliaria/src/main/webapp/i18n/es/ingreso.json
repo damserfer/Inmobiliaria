@@ -1,0 +1,27 @@
+{
+  "inmobiliariaApp": {
+    "ingreso": {
+      "home": {
+        "title": "Ingresos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Ingreso",
+        "createOrEditLabel": "Crear o editar Ingreso",
+        "notFound": "Ningún Ingresos encontrado"
+      },
+      "created": "Un nuevo Ingreso ha sido creado con el identificador {{ param }}",
+      "updated": "Un Ingreso ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Ingreso ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Ingreso {{ id }}?"
+      },
+      "detail": {
+        "title": "Ingreso"
+      },
+      "id": "ID",
+      "mes": "Mes",
+      "concepto": "Concepto",
+      "cantidad": "Cantidad",
+      "cargo": "Cargo"
+    }
+  }
+}

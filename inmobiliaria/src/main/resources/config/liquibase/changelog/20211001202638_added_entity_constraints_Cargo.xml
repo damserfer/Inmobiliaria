@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Cargo.
+    -->
+    <changeSet id="20211001202638-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="ingreso_id"
+                                 baseTableName="cargo"
+                                 constraintName="fk_cargo__ingreso_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingreso"/>
+
+        <addForeignKeyConstraint baseColumnNames="contrato_id"
+                                 baseTableName="cargo"
+                                 constraintName="fk_cargo__contrato_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contrato"/>
+    </changeSet>
+</databaseChangeLog>

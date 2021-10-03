@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="EmpresaHeading">
+    <span jhiTranslate="inmobiliariaApp.empresa.home.title">Empresas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="inmobiliariaApp.empresa.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-empresa"
+        [routerLink]="['/empresa/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="inmobiliariaApp.empresa.home.createLabel"> Create a new Empresa </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="empresas?.length === 0">
+    <span jhiTranslate="inmobiliariaApp.empresa.home.notFound">No empresas found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="empresas && empresas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.empresa.cif">Cif</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.empresa.nombre">Nombre</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.empresa.calle">Calle</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.empresa.numero">Numero</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.empresa.ciudad">Ciudad</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.empresa.web">Web</span></th>
+          <th scope="col"><span jhiTranslate="inmobiliariaApp.empresa.telefono">Telefono</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of empresas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/empresa', empresa.id, 'view']">{{ empresa.id }}</a>
+          </td>
+          <td>{{ empresa.cif }}</td>
+          <td>{{ empresa.nombre }}</td>
+          <td>{{ empresa.calle }}</td>
+          <td>{{ empresa.numero }}</td>
+          <td>{{ empresa.ciudad }}</td>
+          <td>{{ empresa.web }}</td>
+          <td>{{ empresa.telefono }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/empresa', empresa.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/empresa', empresa.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(empresa)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

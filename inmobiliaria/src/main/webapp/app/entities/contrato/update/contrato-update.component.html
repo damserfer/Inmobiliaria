@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-contrato-heading" data-cy="ContratoCreateUpdateHeading" jhiTranslate="inmobiliariaApp.contrato.home.createOrEditLabel">
+        Create or edit a Contrato
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.contrato.fechaInicio" for="field_fechaInicio">Fecha Inicio</label>
+          <div class="input-group">
+            <input
+              id="field_fechaInicio"
+              data-cy="fechaInicio"
+              type="text"
+              class="form-control"
+              name="fechaInicio"
+              ngbDatepicker
+              #fechaInicioDp="ngbDatepicker"
+              formControlName="fechaInicio"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fechaInicioDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.contrato.fechaFin" for="field_fechaFin">Fecha Fin</label>
+          <div class="input-group">
+            <input
+              id="field_fechaFin"
+              data-cy="fechaFin"
+              type="text"
+              class="form-control"
+              name="fechaFin"
+              ngbDatepicker
+              #fechaFinDp="ngbDatepicker"
+              formControlName="fechaFin"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fechaFinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.contrato.precioAlquiler" for="field_precioAlquiler"
+            >Precio Alquiler</label
+          >
+          <div class="input-group">
+            <input
+              id="field_precioAlquiler"
+              data-cy="precioAlquiler"
+              type="text"
+              class="form-control"
+              name="precioAlquiler"
+              ngbDatepicker
+              #precioAlquilerDp="ngbDatepicker"
+              formControlName="precioAlquiler"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="precioAlquilerDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.contrato.usuarioEx" for="field_usuarioEx">Usuario Ex</label>
+          <select class="form-control" id="field_usuarioEx" data-cy="usuarioEx" name="usuarioEx" formControlName="usuarioEx">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="usuarioExOption.id === editForm.get('usuarioEx')!.value?.id ? editForm.get('usuarioEx')!.value : usuarioExOption"
+              *ngFor="let usuarioExOption of usuarioExesSharedCollection; trackBy: trackUsuarioExById"
+            >
+              {{ usuarioExOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.contrato.inmueble" for="field_inmueble">Inmueble</label>
+          <select class="form-control" id="field_inmueble" data-cy="inmueble" name="inmueble" formControlName="inmueble">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="inmuebleOption.id === editForm.get('inmueble')!.value?.id ? editForm.get('inmueble')!.value : inmuebleOption"
+              *ngFor="let inmuebleOption of inmueblesSharedCollection; trackBy: trackInmuebleById"
+            >
+              {{ inmuebleOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

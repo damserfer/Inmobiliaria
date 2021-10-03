@@ -1,0 +1,11 @@
+id;fecha_cargo;mes;ejercicio;importe_total;pagado;concepto
+1;2021-10-01;Diciembre;94476;60795;true;Alquiler
+2;2021-10-01;Julio;53848;1892;false;Servicios
+3;2021-10-01;Septiembre;7813;91407;true;Alquiler
+4;2021-10-01;Octubre;47770;59837;true;Servicios
+5;2021-10-01;Abril;97643;95617;false;Servicios
+6;2021-10-01;Enero;55253;76630;false;Servicios
+7;2021-10-01;Noviembre;33108;38221;true;Alquiler
+8;2021-09-30;Octubre;98205;59425;false;Fianza
+9;2021-10-01;Junio;95317;60326;false;Fianza
+10;2021-09-30;Junio;33245;5276;false;Servicios

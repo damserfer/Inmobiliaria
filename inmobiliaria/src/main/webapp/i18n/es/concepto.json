@@ -1,0 +1,10 @@
+{
+  "inmobiliariaApp": {
+    "Concepto": {
+      "null": "",
+      "Fianza": "Fianza",
+      "Alquiler": "Alquiler",
+      "Servicios": "Servicios"
+    }
+  }
+}

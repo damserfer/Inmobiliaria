@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cargo">
+      <h2 data-cy="cargoDetailsHeading"><span jhiTranslate="inmobiliariaApp.cargo.detail.title">Cargo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cargo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.fechaCargo">Fecha Cargo</span></dt>
+        <dd>
+          <span>{{ cargo.fechaCargo | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.mes">Mes</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'inmobiliariaApp.Mes.' + cargo.mes }}">{{ cargo.mes }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.ejercicio">Ejercicio</span></dt>
+        <dd>
+          <span>{{ cargo.ejercicio }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.importeTotal">Importe Total</span></dt>
+        <dd>
+          <span>{{ cargo.importeTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.pagado">Pagado</span></dt>
+        <dd>
+          <span>{{ cargo.pagado }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.concepto">Concepto</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'inmobiliariaApp.Concepto.' + cargo.concepto }}">{{ cargo.concepto }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.ingreso">Ingreso</span></dt>
+        <dd>
+          <div *ngIf="cargo.ingreso">
+            <a [routerLink]="['/ingreso', cargo.ingreso?.id, 'view']">{{ cargo.ingreso?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.cargo.contrato">Contrato</span></dt>
+        <dd>
+          <div *ngIf="cargo.contrato">
+            <a [routerLink]="['/contrato', cargo.contrato?.id, 'view']">{{ cargo.contrato?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cargo', cargo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

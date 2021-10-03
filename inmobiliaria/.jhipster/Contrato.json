@@ -1,0 +1,53 @@
+{
+  "name": "Contrato",
+  "fields": [
+    {
+      "fieldName": "fechaInicio",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "fechaFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "precioAlquiler",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "valoracion",
+      "otherEntityRelationshipName": "contrato",
+      "relationshipName": "valoracion"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "cargo",
+      "otherEntityRelationshipName": "contrato",
+      "relationshipName": "cargo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usuarioEx",
+      "otherEntityRelationshipName": "contrato",
+      "relationshipName": "usuarioEx"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inmueble",
+      "otherEntityRelationshipName": "contrato",
+      "relationshipName": "inmueble"
+    }
+  ],
+  "entityTableName": "contrato",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202636"
+}

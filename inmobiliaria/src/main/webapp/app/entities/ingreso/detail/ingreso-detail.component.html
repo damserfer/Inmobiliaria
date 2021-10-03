@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ingreso">
+      <h2 data-cy="ingresoDetailsHeading"><span jhiTranslate="inmobiliariaApp.ingreso.detail.title">Ingreso</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ingreso.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.ingreso.mes">Mes</span></dt>
+        <dd>
+          <span>{{ ingreso.mes | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.ingreso.concepto">Concepto</span></dt>
+        <dd>
+          <span>{{ ingreso.concepto }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.ingreso.cantidad">Cantidad</span></dt>
+        <dd>
+          <span>{{ ingreso.cantidad }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ingreso', ingreso.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

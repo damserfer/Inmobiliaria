@@ -1,0 +1,27 @@
+{
+  "inmobiliariaApp": {
+    "habitacion": {
+      "home": {
+        "title": "Habitacions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Habitacion",
+        "createOrEditLabel": "Crear o editar Habitacion",
+        "notFound": "Ningún Habitacions encontrado"
+      },
+      "created": "Un nuevo Habitacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Habitacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Habitacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Habitacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Habitacion"
+      },
+      "id": "ID",
+      "precio": "Precio",
+      "descripcion": "Descripcion",
+      "fotoHabitacion": "Foto Habitacion",
+      "inmueble": "Inmueble"
+    }
+  }
+}

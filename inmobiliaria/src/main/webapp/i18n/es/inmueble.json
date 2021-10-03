@@ -1,0 +1,34 @@
+{
+  "inmobiliariaApp": {
+    "inmueble": {
+      "home": {
+        "title": "Inmuebles",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Inmueble",
+        "createOrEditLabel": "Crear o editar Inmueble",
+        "notFound": "Ningún Inmuebles encontrado"
+      },
+      "created": "Un nuevo Inmueble ha sido creado con el identificador {{ param }}",
+      "updated": "Un Inmueble ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Inmueble ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Inmueble {{ id }}?"
+      },
+      "detail": {
+        "title": "Inmueble"
+      },
+      "id": "ID",
+      "calle": "Calle",
+      "numero": "Numero",
+      "escalera": "Escalera",
+      "codPostal": "Cod Postal",
+      "ciudad": "Ciudad",
+      "descripcion": "Descripcion",
+      "nbanios": "Nbanios",
+      "habitacion": "Habitacion",
+      "contrato": "Contrato",
+      "servicio": "Servicio",
+      "usuarioEx": "Usuario Ex"
+    }
+  }
+}

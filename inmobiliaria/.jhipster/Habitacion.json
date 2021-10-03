@@ -1,0 +1,37 @@
+{
+  "name": "Habitacion",
+  "fields": [
+    {
+      "fieldName": "precio",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "fotoHabitacion",
+      "otherEntityRelationshipName": "habitacion",
+      "relationshipName": "fotoHabitacion"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inmueble",
+      "otherEntityRelationshipName": "habitacion",
+      "relationshipName": "inmueble"
+    }
+  ],
+  "entityTableName": "habitacion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202641"
+}

@@ -1,0 +1,132 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-cargo-heading" data-cy="CargoCreateUpdateHeading" jhiTranslate="inmobiliariaApp.cargo.home.createOrEditLabel">
+        Create or edit a Cargo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.fechaCargo" for="field_fechaCargo">Fecha Cargo</label>
+          <div class="input-group">
+            <input
+              id="field_fechaCargo"
+              data-cy="fechaCargo"
+              type="text"
+              class="form-control"
+              name="fechaCargo"
+              ngbDatepicker
+              #fechaCargoDp="ngbDatepicker"
+              formControlName="fechaCargo"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fechaCargoDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.mes" for="field_mes">Mes</label>
+          <select class="form-control" name="mes" formControlName="mes" id="field_mes" data-cy="mes">
+            <option [ngValue]="null">{{ 'inmobiliariaApp.Mes.null' | translate }}</option>
+            <option value="Enero">{{ 'inmobiliariaApp.Mes.Enero' | translate }}</option>
+            <option value="Febrero">{{ 'inmobiliariaApp.Mes.Febrero' | translate }}</option>
+            <option value="Marzo">{{ 'inmobiliariaApp.Mes.Marzo' | translate }}</option>
+            <option value="Abril">{{ 'inmobiliariaApp.Mes.Abril' | translate }}</option>
+            <option value="Mayo">{{ 'inmobiliariaApp.Mes.Mayo' | translate }}</option>
+            <option value="Junio">{{ 'inmobiliariaApp.Mes.Junio' | translate }}</option>
+            <option value="Julio">{{ 'inmobiliariaApp.Mes.Julio' | translate }}</option>
+            <option value="Agosto">{{ 'inmobiliariaApp.Mes.Agosto' | translate }}</option>
+            <option value="Septiembre">{{ 'inmobiliariaApp.Mes.Septiembre' | translate }}</option>
+            <option value="Octubre">{{ 'inmobiliariaApp.Mes.Octubre' | translate }}</option>
+            <option value="Noviembre">{{ 'inmobiliariaApp.Mes.Noviembre' | translate }}</option>
+            <option value="Diciembre">{{ 'inmobiliariaApp.Mes.Diciembre' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.ejercicio" for="field_ejercicio">Ejercicio</label>
+          <input type="number" class="form-control" name="ejercicio" id="field_ejercicio" data-cy="ejercicio" formControlName="ejercicio" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.importeTotal" for="field_importeTotal">Importe Total</label>
+          <input
+            type="number"
+            class="form-control"
+            name="importeTotal"
+            id="field_importeTotal"
+            data-cy="importeTotal"
+            formControlName="importeTotal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.pagado" for="field_pagado">Pagado</label>
+          <input type="checkbox" class="form-check" name="pagado" id="field_pagado" data-cy="pagado" formControlName="pagado" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.concepto" for="field_concepto">Concepto</label>
+          <select class="form-control" name="concepto" formControlName="concepto" id="field_concepto" data-cy="concepto">
+            <option [ngValue]="null">{{ 'inmobiliariaApp.Concepto.null' | translate }}</option>
+            <option value="Fianza">{{ 'inmobiliariaApp.Concepto.Fianza' | translate }}</option>
+            <option value="Alquiler">{{ 'inmobiliariaApp.Concepto.Alquiler' | translate }}</option>
+            <option value="Servicios">{{ 'inmobiliariaApp.Concepto.Servicios' | translate }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.ingreso" for="field_ingreso">Ingreso</label>
+          <select class="form-control" id="field_ingreso" data-cy="ingreso" name="ingreso" formControlName="ingreso">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="ingresoOption.id === editForm.get('ingreso')!.value?.id ? editForm.get('ingreso')!.value : ingresoOption"
+              *ngFor="let ingresoOption of ingresosCollection; trackBy: trackIngresoById"
+            >
+              {{ ingresoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="inmobiliariaApp.cargo.contrato" for="field_contrato">Contrato</label>
+          <select class="form-control" id="field_contrato" data-cy="contrato" name="contrato" formControlName="contrato">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="contratoOption.id === editForm.get('contrato')!.value?.id ? editForm.get('contrato')!.value : contratoOption"
+              *ngFor="let contratoOption of contratoesSharedCollection; trackBy: trackContratoById"
+            >
+              {{ contratoOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

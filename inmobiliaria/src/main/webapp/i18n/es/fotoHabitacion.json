@@ -1,0 +1,25 @@
+{
+  "inmobiliariaApp": {
+    "fotoHabitacion": {
+      "home": {
+        "title": "Foto Habitacions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Foto Habitacion",
+        "createOrEditLabel": "Crear o editar Foto Habitacion",
+        "notFound": "Ningún Foto Habitacions encontrado"
+      },
+      "created": "Un nuevo Foto Habitacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Foto Habitacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Foto Habitacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Foto Habitacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Foto Habitacion"
+      },
+      "id": "ID",
+      "url": "Url",
+      "habitacion": "Habitacion"
+    }
+  }
+}

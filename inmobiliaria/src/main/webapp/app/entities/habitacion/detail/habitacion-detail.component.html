@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="habitacion">
+      <h2 data-cy="habitacionDetailsHeading"><span jhiTranslate="inmobiliariaApp.habitacion.detail.title">Habitacion</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ habitacion.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.habitacion.precio">Precio</span></dt>
+        <dd>
+          <span>{{ habitacion.precio }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.habitacion.descripcion">Descripcion</span></dt>
+        <dd>
+          <span>{{ habitacion.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.habitacion.inmueble">Inmueble</span></dt>
+        <dd>
+          <div *ngIf="habitacion.inmueble">
+            <a [routerLink]="['/inmueble', habitacion.inmueble?.id, 'view']">{{ habitacion.inmueble?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/habitacion', habitacion.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

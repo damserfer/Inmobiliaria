@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fotoUsuario">
+      <h2 data-cy="fotoUsuarioDetailsHeading"><span jhiTranslate="inmobiliariaApp.fotoUsuario.detail.title">Foto Usuario</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fotoUsuario.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.fotoUsuario.url">Url</span></dt>
+        <dd>
+          <span>{{ fotoUsuario.url }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.fotoUsuario.usuarioEx">Usuario Ex</span></dt>
+        <dd>
+          <div *ngIf="fotoUsuario.usuarioEx">
+            <a [routerLink]="['/usuario-ex', fotoUsuario.usuarioEx?.id, 'view']">{{ fotoUsuario.usuarioEx?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/foto-usuario', fotoUsuario.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

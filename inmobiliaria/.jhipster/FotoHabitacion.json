@@ -1,0 +1,27 @@
+{
+  "name": "FotoHabitacion",
+  "fields": [
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "habitacion",
+      "otherEntityRelationshipName": "fotoHabitacion",
+      "relationshipName": "habitacion"
+    }
+  ],
+  "entityTableName": "foto_habitacion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211001202644"
+}

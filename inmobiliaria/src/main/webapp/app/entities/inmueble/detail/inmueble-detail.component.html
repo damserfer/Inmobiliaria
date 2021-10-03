@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="inmueble">
+      <h2 data-cy="inmuebleDetailsHeading"><span jhiTranslate="inmobiliariaApp.inmueble.detail.title">Inmueble</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ inmueble.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.calle">Calle</span></dt>
+        <dd>
+          <span>{{ inmueble.calle }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.numero">Numero</span></dt>
+        <dd>
+          <span>{{ inmueble.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.escalera">Escalera</span></dt>
+        <dd>
+          <span>{{ inmueble.escalera }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.codPostal">Cod Postal</span></dt>
+        <dd>
+          <span>{{ inmueble.codPostal }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.ciudad">Ciudad</span></dt>
+        <dd>
+          <span>{{ inmueble.ciudad }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.descripcion">Descripcion</span></dt>
+        <dd>
+          <span>{{ inmueble.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.nbanios">Nbanios</span></dt>
+        <dd>
+          <span>{{ inmueble.nbanios }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.inmueble.usuarioEx">Usuario Ex</span></dt>
+        <dd>
+          <div *ngIf="inmueble.usuarioEx">
+            <a [routerLink]="['/usuario-ex', inmueble.usuarioEx?.id, 'view']">{{ inmueble.usuarioEx?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/inmueble', inmueble.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

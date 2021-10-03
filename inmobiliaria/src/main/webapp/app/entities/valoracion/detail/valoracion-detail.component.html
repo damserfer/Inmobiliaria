@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="valoracion">
+      <h2 data-cy="valoracionDetailsHeading"><span jhiTranslate="inmobiliariaApp.valoracion.detail.title">Valoracion</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ valoracion.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.valoracion.comentario">Comentario</span></dt>
+        <dd>
+          <span>{{ valoracion.comentario }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.valoracion.puntuacion">Puntuacion</span></dt>
+        <dd>
+          <span>{{ valoracion.puntuacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="inmobiliariaApp.valoracion.contrato">Contrato</span></dt>
+        <dd>
+          <div *ngIf="valoracion.contrato">
+            <a [routerLink]="['/contrato', valoracion.contrato?.id, 'view']">{{ valoracion.contrato?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/valoracion', valoracion.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

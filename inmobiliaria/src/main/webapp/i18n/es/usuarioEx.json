@@ -1,0 +1,30 @@
+{
+  "inmobiliariaApp": {
+    "usuarioEx": {
+      "home": {
+        "title": "Usuario Exes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Usuario Ex",
+        "createOrEditLabel": "Crear o editar Usuario Ex",
+        "notFound": "Ningún Usuario Exes encontrado"
+      },
+      "created": "Un nuevo Usuario Ex ha sido creado con el identificador {{ param }}",
+      "updated": "Un Usuario Ex ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Usuario Ex ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Usuario Ex {{ id }}?"
+      },
+      "detail": {
+        "title": "Usuario Ex"
+      },
+      "id": "ID",
+      "dni": "Dni",
+      "nombre": "Nombre",
+      "apellidos": "Apellidos",
+      "password": "Password",
+      "fotoUsuario": "Foto Usuario",
+      "inmueble": "Inmueble",
+      "contrato": "Contrato"
+    }
+  }
+}
